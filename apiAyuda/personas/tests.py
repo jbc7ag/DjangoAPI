@@ -43,7 +43,7 @@ class PersonasTest(TestCase):
 
     def test_delete_persona(self):
         response = self.client.delete(reverse('persona_endpoint', kwargs={'pk':self.segunda_persona.id}))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 204)
 
 
     def test_put_persona(self):
