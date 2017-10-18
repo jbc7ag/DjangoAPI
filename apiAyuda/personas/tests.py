@@ -36,7 +36,7 @@ class PersonasTest(TestCase):
 
 
     def test_post_persona(self):
-        response=self.client.post(reverse('persona_endpoint'),
+        response=self.client.post(reverse('personas_endpoint'),
                                   data=json.dumps(self.persona_correcta_json),
                                   content_type='application/json')
         self.assertEqual(response.status_code,201)
