@@ -1,0 +1,13 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker pull mysql
+    - docker build -t docker-api-dvf .
+    - docker run --name contenedor-mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=damnificadosDb -d mysql
+
+test:
+  override:
+    - docker run -it --link contenedor-mysql:mysql docker-api-devf sh test.sh
