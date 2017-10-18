@@ -1,0 +1,15 @@
+cmd
+>>Ir a carpeta donde se genero el ambiete
+>>Correr el ejecutable de 'activate' en scripts.
+
+
+Crear una aplicacion nueva en el entorno de desarrollo.
+>python manage.py startapp personascd
+
+Abrir consola de shell
+
+--correr la app
+>python manage.py shell
+
+-- 
+Revisar documentacion manage.py

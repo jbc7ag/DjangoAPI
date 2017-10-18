@@ -1,0 +1,13 @@
+version: '2'
+services:
+  contenedor-mysql:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD = root
+      - MYSQL_DATABASE = damnificadosDb
+  django-clase:
+     #build: .
+    image: docker-api-devf
+    ports:
+      - "8000:8000"
+
