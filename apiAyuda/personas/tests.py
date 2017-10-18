@@ -32,7 +32,7 @@ class PersonasTest(TestCase):
 
 
     def test_get_one_person(self):
-        response=self.client.get(reverse('persona_endpoint', kwargs={'pk':self.primer_persona}))
+        response=self.client.get(reverse('persona_endpoint'), kwargs={'pk':self.primer_persona.id})
         persona=Personas.objects.get(pk=self.primer_persona.id)
         serializer=PersonasSerializer(persona)
         self.assertEqual(response.status_code, 200)
@@ -46,12 +46,12 @@ class PersonasTest(TestCase):
         self.assertEqual(response.status_code,201)
 
     def test_delete_persona(self):
-        response = self.client.delete(reverse('persona_endpoint', kwargs={'pk': self.segunda_persona}))
+        response = self.client.delete(reverse('persona_endpoint'), kwargs={'pk': self.segunda_persona.id})
         self.assertEqual(response.status_code, 200)
 
     def test_put_persona(self):
         response= self.client.put(reverse('persona_endpoint'),
-                                  kwargs={'pk':self.primer_persona},
+                                  kwargs={'pk':self.primer_persona.id},
                                   data=json.dumps(self.persona_correcta_json),
                                   content_type='application/json')
         self.assertEqual(response.status_code,202)
