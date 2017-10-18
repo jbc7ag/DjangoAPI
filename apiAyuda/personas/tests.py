@@ -50,7 +50,7 @@ class PersonasTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_put_persona(self):
-        response= self.client.put(reverse('persona_endopoint'),
+        response= self.client.put(reverse('persona_endpoint'),
                                   kwargs={'pk':self.primer_persona},
                                   data=json.dumps(self.persona_correcta_json),
                                   content_type='application/json')
