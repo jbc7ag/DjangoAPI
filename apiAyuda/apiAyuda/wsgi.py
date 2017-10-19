@@ -11,6 +11,9 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "apiAyuda.settings.development")
+settingsEnv = "apiAyuda.settings." + os.environ.get('DJANGO_ENV')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", settingsEnv)
+# os.environ.setdefault("DJANGO_SETTINGS_MODULE", "apiAyuda.settings.development")
+
 
 application = get_wsgi_application()

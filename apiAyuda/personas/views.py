@@ -72,7 +72,6 @@ class PersonaApi(APIView):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
     def delete(self, request, pk):
         persona=self._getPersona(pk)
         persona.delete();
